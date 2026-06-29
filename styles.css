@@ -1,0 +1,341 @@
+/* VARIÁVEIS GLOBAIS DE CORES */
+
+:root {
+    --bg-color: hsl(0, 0%, 100%);
+    --bg-secondary: hsl(0, 0%, 96%);
+    --text-color: hsl(0, 0%, 10%);
+    --text-secondary: hsl(0, 0%, 35%);
+    --border-color: hsl(0, 0%, 80%);
+
+    --accent-color: hsl(0, 100%, 50%);
+    --accent-hover: hsl(0, 100%, 35%);
+
+    --submit-color: hsl(145, 60%, 40%);
+    --submit-hover: hsl(145, 60%, 33%);
+    --submit-text: hsl(0, 0%, 100%);
+}
+
+[data-theme="dark"] {
+    --bg-color: hsl(0, 0%, 10%);
+    --bg-secondary: hsl(0, 0%, 16%);
+    --text-color: hsl(0, 0%, 95%);
+    --text-secondary: hsl(0, 0%, 70%);
+    --border-color: hsl(0, 0%, 30%);
+
+    --accent-color: hsl(0, 100%, 50%);
+    --accent-hover: hsl(0, 100%, 35%);
+
+    --submit-color: hsl(145, 50%, 45%);
+    --submit-hover: hsl(145, 50%, 38%);
+    --submit-text: hsl(0, 0%, 100%);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* NAVEGAÇÃO */
+
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.nav {
+    display: flex;
+    /* border: 1px solid var(--border-color); */
+}
+
+.nav a {
+    margin: 0;
+    padding: 10px 20px;
+    /* border-right: 1px solid var(--border-color); */
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+}
+
+
+.nav a:hover {
+    /* background-color: var(--accent-hover); */
+    border-bottom: 4px solid var(--accent-hover);
+}
+
+.nav a:last-child {
+    border-right: none;
+}
+
+.nav a.active {
+    font-weight: bold;
+    /* background-color: var(--accent-color); */
+    border-bottom: 4px solid var(--accent-color)
+}
+
+#theme-toggle {
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
+    color: var(--text-color);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+#theme-toggle:hover {
+    background-color: var(--bg-secondary);
+}
+
+#theme-toggle:active {
+    transform: scale(0.95);
+}
+
+/* CONTEÚDO DAS PÁGINAS */
+
+.content {
+    margin: 0 auto;
+    width: 50%;
+    text-align: justify;
+}
+
+.content p {
+    font-size: 18px;
+    margin-bottom: 32px;
+}
+
+.content p:last-child {
+    margin-bottom: 0px;
+}
+
+/* FORMULÁRIO DA PÁGINA DE CONTATO */
+
+#form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#form label {
+    font-weight: bold;
+}
+
+#form input, textarea {
+    font-size: 16px;
+}
+
+#form input {
+    background-color: var(--bg-secondary);
+    color: var(--text-color);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 14px;
+    height: 24px;
+}
+
+#form textarea {
+    font-family: inherit; /* sem isso, vem com fonte monoespaçada padrão do navegador */
+    resize: vertical; /* permite redimensionar só na altura, não na largura */
+    min-height: 100px;
+    max-height: 300px;
+    background-color: var(--bg-secondary);
+    color: var(--text-color);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 14px;
+}
+
+#form textarea::-webkit-scrollbar {
+    width: 8px;
+}
+
+#form textarea::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+}
+
+#form textarea::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 8px;
+}
+
+#form textarea::-webkit-scrollbar-thumb:hover {
+    background: var(--border-color);
+    cursor: pointer;
+}
+
+#form button {
+    background-color: var(--submit-color);
+    color: var(--submit-text);
+    width: 100%;
+    margin-top: 2px;
+    padding: 12px 32px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    margin-left: auto;
+}
+
+#form button:hover {
+    background-color: var(--submit-hover);
+    cursor: pointer;
+}
+
+/* MODAL QUE APARECE AO ENVIAR O FORMULÁRIO DE CONTATO */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-overlay.hidden {
+    display: none;
+}
+
+.modal {
+    background-color: var(--bg-secondary);
+    color: var(--text-color);
+    padding: 24px 32px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.modal button {
+    margin-top: 16px;
+    padding: 8px 24px;
+    background-color: var(--submit-color);
+    color: var(--submit-text);
+    border: none;
+    border-radius: 8px;
+}
+
+.modal button:hover {
+    cursor: pointer;
+    background-color: var(--submit-hover);
+}
+
+/* PÁGINA DE FORMAÇÃO */
+
+.formacao-item {
+    border-left: 3px solid var(--accent-color);
+    padding-left: 16px;
+    margin-bottom: 24px;
+}
+
+.formacao-item ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.formacao-item li {
+    font-size: 18px;
+    padding: 4px 0;
+}
+
+.formacao-item a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.formacao-item a:hover {
+    text-decoration: underline;
+    opacity: 0.7;
+}
+
+/* PORTFÓLIO */
+
+.project-item {
+    border-left: 3px solid var(--accent-color);
+    padding-left: 16px;
+    margin-bottom: 24px;
+}
+
+.project-item h3 {
+    margin-bottom: 8px;
+}
+
+.project-item p {
+    margin-bottom: 12px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.tags span {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 13px;
+    color: var(--text-secondary)
+}
+
+.project-item a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.project-item a:hover {
+    text-decoration: underline;
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    .content {
+        width: 85%;
+    }
+
+    .nav a {
+        padding: 8px 14px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-wrapper {
+        width: fit-content;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav a {
+        padding: 8px 10px;
+        font-size: 13px;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .content {
+        width: 90%;
+        text-align: justify;
+    }
+
+    #theme-toggle {
+        align-self: center;
+    }
+}

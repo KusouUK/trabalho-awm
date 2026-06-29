@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitor | Contato</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" href="public/cc9dec872865842fbad535b1f6148ab9.jpg">
+</head>
+<body>
+    <div class="nav-wrapper">
+        <div class="nav">
+            <a href="index.html">Sobre mim</a>
+            <a href="formacao.html">Formação</a>
+            <a href="portfolio.html">Portfólio</a>
+            <a href="contato.html">Contato</a>
+        </div>
+        <button id="theme-toggle">🌙</button>
+    </div>
+
+    <section class="content">
+        <h2>Contato</h2>
+        <p>
+            Se meu portfólio te interesseu, me contate através do formulário abaixo!
+        </p>
+
+        <form id="form">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" placeholder="Nome completo" required>
+            <label for="email">E-mail</label>
+            <input type="email" id="email" placeholder="E-mail" required>
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" placeholder="Digite sua mensagem..." required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+    
+    <div class="modal-overlay hidden" id="modal-overlay">
+        <div class="modal">
+            <p>Mensagem enviada com sucesso!</p>
+            <button id="modal-close">OK</button>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
